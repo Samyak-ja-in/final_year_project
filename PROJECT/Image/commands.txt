@@ -1,0 +1,10 @@
+python3 image.py
+python3 image_subscriber.py
+rosrun image_view image_view image:=/image
+
+
+
+
+rostopic list
+rosnode list
+

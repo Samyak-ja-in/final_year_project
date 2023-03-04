@@ -1,0 +1,5 @@
+python3 video_publisher.py
+python3 video_subscriber.py
+python3 id_publisher.py 
+rostopic echo /id
+rosrun image_view image_view image:=/video
