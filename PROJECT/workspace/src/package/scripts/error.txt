@@ -1,0 +1,1 @@
+if cmake error is there then we have to make chnages in CMakeLists.txt and package.xml file and always make sure to resource the setup.bash files

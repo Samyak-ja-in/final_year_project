@@ -23,7 +23,8 @@ image_message=bridge.cv2_to_imgmsg(image,"bgr8")
 
 
 pub=rospy.Publisher("/image",Image,queue_size=10)
-while True:
+while not rospy.is_shutdown():
     pub.publish(image_message)
+    rospy.loginfo('publishing image')
     rate.sleep()
 rospy.spin()

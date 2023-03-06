@@ -1,0 +1,8 @@
+prefix=/home/samyak01/Desktop/FINAL YEAR PROJECT /PROJECT/workspace/install
+
+Name: package
+Description: Description of package
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
