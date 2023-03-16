@@ -5,7 +5,7 @@
 #include <fstream>
 
 using std::string;
-using std::ofstram;
+using std::ofstream;
 
 #define GPIO_PATH "/sys/class/gpio/"
 
