@@ -2,32 +2,33 @@
 
 ECC_gpio::GPIO::GPIO(int pin_number)
 {
-	std::cout << "exporting the pin" + string(pin_number) << std::endl;
-	system(string("echo" + string(pin_number) + " > " + string(path) + "export").cstr());
+        std::cout << "exporting the pin" + std::to_string(pin_number) << std::endl;
+        system(string("echo " + std::to_string(pin_number) + " > " + string(path) + "export").c_str());
+        std::cout <<  "echo " + std::to_string(pin_number) + " > " + string(path) + "export" << std ::endl;
 }
 
-ECC_gpio::GPIO::gpioInit(int pin_number, string pin_direction, string pin_mode = "none")
+void ECC_gpio::GPIO::gpioPinInit(int pin_number, string pin_direction, string pin_mode)
 {
-	fstream file;
-    file.open((string(path) + "/gpio" + string(pin_number) + "/direction").c_str(), fstream::out);
-    file << pin_direction;
-    file.close();
+        std::fstream file;
+        file.open((string(path) + "gpio" + std::to_string(pin_number) + "/direction").c_str(), std::fstream::out);
+        file << pin_direction.c_str();
+        file.close();
 }
 
-ECC_gpio::GPIO::gpioWritePin(int pin_number, int pin_status)
+void ECC_gpio::GPIO::gpioWritePin(int pin_number, int pin_status)
 {
-	fstream file;
-    file.open((string(path) + "/gpio" + string(pin_number) + "/value").c_str(), fstream::out);
-    file << pin_status;
-    file.close();
+        std::fstream file;
+        file.open((string(path) + "gpio" + std::to_string(pin_number) + "/value").c_str(), std::fstream::out);
+        file << pin_status;
+        file.close();
 }
 
-ECC_gpio::GPIO::gpioReadPin(int pin_number)
+int ECC_gpio::GPIO::gpioReadPin(int pin_number)
 {
-
+        return 0;
 }
 
-ECC_gpio::GPIO::~GPIO(int pin_number)
+ECC_gpio::GPIO::~GPIO()
 {
 
 }
