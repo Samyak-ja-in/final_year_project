@@ -25,10 +25,20 @@ void ECC_gpio::GPIO::gpioWritePin(int pin_number, int pin_status)
 
 int ECC_gpio::GPIO::gpioReadPin(int pin_number)
 {
-        return 0;
+        std::fstream file;
+        file.open((string(path) + "gpio" + std::to_string(pin_number) + "/value").c_str(), std::fstream::in);
+        string result;
+        getline(file, result);
+        // std::cout << result << std::endl;
+        file.close();
+        return std::stoi(result);
 }
 
 ECC_gpio::GPIO::~GPIO()
 {
-
+        // only uncomment when instantly deinitialize the pin
+        // std::cout << "Unexporting the pin" + std::to_string(pin_number) << std::endl;
+        // std::cout << "path : " + path << std::endl;
+        // system(string("echo " + std::to_string(pin_number) + " > " + string(path) + "unexport").c_str());
+        // std::cout <<  "echo " + std::to_string(pin_number) + " > " + string(path) + "unexport" << std ::endl;
 }
