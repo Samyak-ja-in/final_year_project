@@ -40,5 +40,5 @@ PWM::~PWM()
     // file.open((std::string(PWM_PATH) + std::string(pwm_number) + "/enable").c_str(), std::fstream::out);
     // file << 0;
     // file.close();
-	// system(("config-pin " + std::string(pin_number) + " pwm").c_str());
+	// system(("config-pin " + std::string(pin_number) + " default").c_str()); // reset pin to default 
 }
